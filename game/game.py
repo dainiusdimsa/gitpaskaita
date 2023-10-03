@@ -19,12 +19,15 @@ class Game(DbGame):
         name = input('Filtruoti pagal pavadinima: ')
         self.filter_by_name(name=name)
 
-    # !!!!!!!BLOGAI!!!!!!!:
     def filter_by_attributes_game(self):
-        name = input('Filtruoti pagal pavadinima: ')
-        price = input('Filtruoti pagal kaina: ')
-        self.filter_by_attributes(name=name, price=price)
-    # !!!!!!!!!!!!!!!!!!!!!
+        attributes = {}
+        while True:
+            key = input('Ivesk atributus (Spausk ENTER, kad baigtum): ')
+            if not key:
+                break
+            value = input(f'Parasyk {key}: ')
+            attributes[key] = value
+        self.filter_by_attributes(**attributes)
 
     def update_by_id(self):
         while True:
