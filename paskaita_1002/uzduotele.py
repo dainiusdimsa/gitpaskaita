@@ -11,7 +11,7 @@ data_set = {3, 6, 9, 12, 171, 97, 912, 686, 94, 156, 71, 260, 275, 86, 612, 80, 
 
 
 def sum_by_3(data):
-    return [d for d in data if d % 3 == 0]
+    return sum([d for d in data if d % 3 == 0])
 
 
 print(sum_by_3(data_list))
@@ -21,4 +21,4 @@ print(sum_by_3(data_set))
 data_dict = {1: 3, 2: 6, 3: 9, 4: 12, 5: 171, 6: 97, 7: 912, 8: 686, 9: 94, 10: 156,
              11: 71, 12: 260, 13: 912, 14: 171, 15: 156, 16: 612, 17: 108}
 
-print(sum_by_3(data_dict))
+# print(sum_by_3(data_dict))
