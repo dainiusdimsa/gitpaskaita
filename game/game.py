@@ -27,18 +27,24 @@ class Game(DbGame):
     # !!!!!!!!!!!!!!!!!!!!!
 
     def update_by_id(self):
-        id_num = int(input('Ivesk ID: '))
-        new_name = input('Ivesk nauja pavadinima: ')
-        new_price = input('Ivesk nauja kaina: ')
-        self.update_value(id_num=id_num, new_name=new_name, new_price=new_price)
+        while True:
+            id_num = int(input('Ivesk ID: '))
+            new_name = input('Ivesk nauja pavadinima: ')
+            try:
+                new_price = float(input('Ivesk nauja kaina: '))
+            except Exception:
+                print('reikia ivesti float')
+                continue
+            self.update_value(id_num=id_num, new_name=new_name, new_price=new_price)
+            break
 
     def delete_value_game(self):
         id_num = int(input('Ivesk ID: '))
         self.delete_value(id_num=id_num)
 
     def get_all(self):
-        value = self.session.query(Program).all()
-        print(value)
+        values = self.session.query(Program).all()
+        print(values)
 
     def run(self):
         while True:
